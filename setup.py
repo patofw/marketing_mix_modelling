@@ -9,9 +9,14 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 # packages required (replaces requirements.txt)
 required = [
     'pandas>2.0',
-    'scikit-learn==1.5.0',
     'matplotlib',
-    'lightweight_mmm==0.1.9'
+    'scikit-learn==1.5.0',
+    'lightweight_mmm==0.1.9',
+    'plotly==5.22.0',
+    'optuna==3.6.1',
+    # if running in a Jupyter Notebook env.
+    "nbformat"
+  
 ]
 
 setup(
@@ -22,5 +27,4 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=required,
-    # dependency_links=[] add model links if desired here
 )
