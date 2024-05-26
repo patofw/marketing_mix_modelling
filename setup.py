@@ -11,11 +11,16 @@ required = [
     'pandas>2.0',
     'matplotlib',
     'scikit-learn==1.5.0',
+    'scipy==1.12.0',
+    'jax==0.4.19',
+    'jaxlib==0.4.19',
     'lightweight_mmm==0.1.9',
     'plotly==5.22.0',
     'optuna==3.6.1',
+    "jinja2==3.0.1",
     # if running in a Jupyter Notebook env.
-    "nbformat"
+    "nbformat",
+
   
 ]
 

@@ -20,8 +20,6 @@ activate your virtual environment after you created it.
 
 Build the module. This will allow to import methods and classes from the package seamlessly.
 
-**NOTE**: Scispacy can give errors when installing in MacOS M1, M2 or M3 machines. In that case, first execute:
-`conda install nmslib`. In other operating systems this might not be required.
 
 ### Build the module
 
@@ -33,23 +31,23 @@ or
 
 `pip install --upgrade build`
 
-then, Build the `medical-nlp` module using: 
+then, Build the `mmx` module using: 
 
 `python -m build`
 
 Finally, install all dependencies that are in the `setup.py` file with 
 
-`pip install .`
+`pip install -e .`
 
-------------------------
-**NOTE**
+---
+> **NOTE**:
 
-For MACOS Silicon (M1, M2 or M3), before running `pip install .` you need to install `matplotlib` separately with:
+>For MACOS Silicon (M1, M2 or M3), before running `pip install .` you need to install `matplotlib` & `jinja2` separately with:
 
-`conda install -c conda-forge matplotlib`
+> `conda install -c conda-forge matplotlib`
+> `conda install -c conda-forge jinja2`
+---
 
-
--------------------------
 After this, you can run 
 
 `pip install .`
