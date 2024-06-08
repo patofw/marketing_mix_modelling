@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from setuptools import setup
+from setuptools import setup, find_packages
 from os import path
 # read the contents of your README file
 this_directory = path.abspath(path.dirname(__file__))
@@ -20,14 +20,14 @@ required = [
     "jinja2==3.0.1",
     # if running in a Jupyter Notebook env.
     "nbformat",
-
-  
+    "ipywidgets"
 ]
 
 setup(
     name="mmx",
     version="0.1",
-    packages=["src", "src.mmx"],
+    package_dir={'': 'src'},
+    packages=find_packages(),
     py_modules=['mmx'],
     long_description=long_description,
     long_description_content_type="text/markdown",
