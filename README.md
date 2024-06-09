@@ -53,3 +53,21 @@ After this, you can run
 
 `pip install .`
 
+---
+
+## Exercises.
+
+This tutorial has 2 main notebooks. The [mmx_linear_model_example](./analysis/mmx_linear_model_example.ipynb) notebook is recommended to be studied first, followed by the [mmx_bayesian_model_example](./analysis/mmx_bayesian_model_example.ipynb) one. 
+
+Both resources give you the fundamental understanding of marketing mix modelling and how it can be applied in the pharmaceutical industry (or any other industry).
+
+---
+
+## About the data sets.
+
+This repo has 3 datasets that can be used in different marketing mix examples. Data is synthetic, but it realistically follows the sales patterns for __off-the-counter (OTC)__ products.
+
+1. [cough_and_cold_sales:](./data/cough_and_cold_sales.csv) This data set resembles the sales for a traditional cough and cold product that is sold OTC in pharmacies in a particular European market. As it is expected, cough and cold sales grow during winter and decrease in summer. In addition to the sales column, normalized marketing spends and relevant external factors are included. Likewise, the sales are realistically impacted by the COVID Pandemic. 
+2. [pain_killer_sales](./data/pain_killer_sales.csv): This data set is similar to the one mentioned above, however it resembles the sales of pain killers, which are much less sensitive to seasonality. This dataset should be loaded and analysed together with its [cost data](./data/pain_killer_cost.csv). The latter gives an aggregated cost of the marketing spends. 
+3. [simple_data_sample](./data/simple_data_sample.csv): This is a simple dataset that can be used in any marketing mix tutorial.
+
