@@ -106,7 +106,7 @@ def sales_from(
     model: LinearRegression,
     X: pd.DataFrame
 ) -> pd.DataFrame:
-    "Compute sales attributed to a certain channel"
+    """Compute sales attributed to a certain channel"""
     coef = model.coef_[features.index(channel)]
     obs = X.iloc[:, features.index(channel)]
     return coef * obs
@@ -114,7 +114,17 @@ def sales_from(
 
 def create_stack_df(
         _df, features: list, lr: LinearRegression
-):
+) -> pd.DataFrame:
+    """Helper for plotting a contribution plot.
+
+    Args:
+        _df (pd.DataFrame): DataFrame with adstock variables.
+        features (list): features
+        lr (LinearRegression): Linear Model
+
+    Returns:
+        pd.DataFrame: A dataframe with the contributions to the target variable.
+    """
     plot_df = pd.DataFrame()
 
     for f in _df.columns:
@@ -129,6 +139,10 @@ def create_stack_df(
 
 
 class AdstockHyperTuning:
+    """Class that uses `optuna` for
+    hyperparameter tuning to find the best fitting
+    adstock parameters (alpha, decay, lag)
+    """
     # This params dict will need to be updated
     # depending on the use case and the variables
     # to optimize. It should be located in a CONFIG file
@@ -144,6 +158,23 @@ class AdstockHyperTuning:
         n_trials: int = 1_000,
         seed: int = 123456
     ):
+        """Constructor of the class.
+
+        Args:
+            df (pd.DataFrame): DataFrame with channels, features and target.
+            hyperparameters (dict): Dictionary of hyperparameters to pass to optuna.
+            the dictionary needs to have the following format.
+            {
+                "alpha_<CHANNEL>: (lower_bound, upper_bound, typ["float" | "int"]),
+                "decay_<CHANNEL>: (lower_bound, upper_bound, typ["float" | "int"]),
+                "lag_<CHANNEL>: (lower_bound, upper_bound, typ["float" | "int"])
+            } See `mmx_linear_model_example.ipynb` for more details.
+            features (tuple[str, ...]): tuple of features (columns)
+            media_channels (tuple[str, ...]): tuple of media_channels.
+            target (str): Name of the target column.
+            n_trials (int, optional): Number of simulations to optimize. Defaults to 1_000.
+            seed (int, optional): Seed. Defaults to 123456.
+        """
 
         self.df = df
         self.hyperparameters = hyperparameters
@@ -192,6 +223,12 @@ class AdstockHyperTuning:
         return mean_squared_error(Y, y_hat)
 
     def hyperparam_tuning(self) -> optuna.Study:
+        """Optimize the `self.hyperparameters` using `self.model`
+
+        The optimal parameters are inside the object returned.
+        Returns:
+            optuna.Study: Result of the study (experiment).
+        """
         study_tuned_params = optuna.create_study(
             sampler=optuna.samplers.RandomSampler(seed=self.seed)
         )
