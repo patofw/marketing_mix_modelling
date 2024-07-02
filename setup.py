@@ -9,7 +9,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
 # packages required (replaces requirements.txt)
 required = [
     'pandas>2.0',
-    'matplotlib',
+    'matplotlib==3.6.1',
     'scikit-learn==1.5.0',
     'scipy==1.12.0',
     'jax==0.4.19',

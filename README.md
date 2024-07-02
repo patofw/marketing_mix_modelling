@@ -35,25 +35,24 @@ then, Build the `mmx` module using:
 
 `python -m build`
 
+---
+> **NOTE**:
+
+>For MACOS Silicon (M1, M2 or M3), before running `pip install .` you need to install & `jinja2` separately with:
+
+> `conda install -c conda-forge jinja2`
+---
+
+After this, you can continue with the normal installation process.
+
+
+
 Finally, install all dependencies that are in the `setup.py` file with 
 
 `pip install -e .`
 
 
----
-> **NOTE**:
 
->For MACOS Silicon (M1, M2 or M3), before running `pip install .` you need to install `matplotlib` & `jinja2` separately with:
-
-> `conda install -c conda-forge matplotlib`
-> `conda install -c conda-forge jinja2`
----
-
-After this, you can run 
-
-`pip install .`
-
----
 
 ## Exercises.
 
