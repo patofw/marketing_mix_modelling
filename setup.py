@@ -28,7 +28,7 @@ setup(
     version="0.1",
     package_dir={'': 'src'},
     packages=["mmx"],
-    # py_modules=['mmx'],
+    py_modules=['mmx'],
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=required,

@@ -70,3 +70,23 @@ This repo has 3 datasets that can be used in different marketing mix examples. D
 2. [pain_killer_sales](./data/pain_killer_sales.csv): This data set is similar to the one mentioned above, however it resembles the sales of pain killers, which are much less sensitive to seasonality. This dataset should be loaded and analysed together with its [cost data](./data/pain_killer_cost.csv). The latter gives an aggregated cost of the marketing spends. 
 3. [simple_data_sample](./data/simple_data_sample.csv): This is a simple dataset that can be used in any marketing mix tutorial.
 
+
+## Running in Colab and "quick install"
+
+To install the `mmx` package in colab, simply open a new [Colab Notebook](https://colab.research.google.com/) and in the first cell run
+
+```bash
+
+!pip install git+https://github.com/patofw/marketing_mix_modelling.git
+```
+
+You can verify the installation with 
+
+```python
+
+import mmx
+
+```
+
+**WARNING** -> MACOS Silicon systems may encounter dependency issues. 
+
