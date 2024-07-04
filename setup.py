@@ -27,7 +27,7 @@ setup(
     name="mmx",
     version="0.1",
     package_dir={'': 'src'},
-    packages=["mmx"],
+    packages=["mmx", "mmx.linear"],
     py_modules=['mmx'],
     long_description=long_description,
     long_description_content_type="text/markdown",
